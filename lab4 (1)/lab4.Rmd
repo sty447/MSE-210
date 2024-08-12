@@ -1,0 +1,208 @@
+---
+title: "Lab 5"
+author: "Stanley Yang"
+date: "`r Sys.Date()`"
+output: openintro::lab_report
+---
+
+```{r load-packages, message=FALSE}
+library(tidyverse)
+library(openintro)
+```
+
+### fileload
+
+load files
+
+```{r code-chunk-label}
+
+#experiment 1 run 1
+ex1_1a = read_csv("data/Ex1_1a.csv", show_col_types = FALSE)
+ex1_1b = read_csv("data/Ex1_1b.csv", show_col_types = FALSE)
+
+#experiment 1 run 2
+ex1_2a = read_csv("data/Ex1_2a.csv", show_col_types = FALSE)
+ex1_2b = read_csv("data/Ex1_2b.csv", show_col_types = FALSE)
+
+#experiment 2 run 1
+ex2_1a = read_csv("data/ex2_1a.csv", show_col_types = FALSE)
+ex2_1b = read_csv("data/ex2_1b.csv", show_col_types = FALSE)
+
+#experiment 2 run 2
+ex2_2a = read_csv("data/ex2_2a.csv", show_col_types = FALSE)
+ex2_2b = read_csv("data/ex2_2b.csv", show_col_types = FALSE)
+
+#experiment 3 run 1
+ex3_1a = read_csv("data/ex3_1a.csv", show_col_types = FALSE)
+ex3_1b = read_csv("data/ex3_1b.csv", show_col_types = FALSE)
+
+#experiment 3 run 2
+ex3_2a = read_csv("data/ex3_2a.csv", show_col_types = FALSE)
+ex3_2b = read_csv("data/ex3_2b.csv", show_col_types = FALSE)
+
+#experiment 4 run 1
+ex4_1a = read_csv("data/ex4_1a.csv", show_col_types = FALSE)
+ex4_1b = read_csv("data/ex4_1b.csv", show_col_types = FALSE)
+
+#experiment 4 run 2
+ex4_2a = read_csv("data/ex4_2a.csv", show_col_types = FALSE)
+ex4_2b = read_csv("data/ex4_2b.csv", show_col_types = FALSE)
+
+```
+
+### Exercise 1
+Q:Plot the 50% and 100% of Ex1
+
+
+```{r}
+
+#Experiment 1 run 1 50%
+ggplot(data = ex1_1a) + 
+  geom_bar(aes(x=Bin,y=Count),stat='identity')
+
+#Experiment 1 run 1 100%
+ggplot(data = ex1_1b) + 
+  geom_bar(aes(x=Bin,y=Count),stat='identity')
+
+#Experiment 1 run 2 50%
+ggplot(data = ex1_2a) + 
+  geom_bar(aes(x=Bin,y=Count),stat='identity')
+
+#Experiment 1 run 2 100%
+ggplot(data = ex1_2b) + 
+  geom_bar(aes(x=Bin,y=Count),stat='identity')
+
+
+
+```
+
+
+### Exercise 2
+
+Q:Calculate the mean and standard deviation of the data by using the “sum” function (note ** stands for power function in R). You can use “cat” to join outputs to make your output pretty.
+Experiment
+
+...
+```{r}
+
+df = ex1_1a;
+Mean = sum(df$Bin*df$Count)/sum(df$Count)
+SD = sqrt(sum((df$Bin-Mean)**2*df$Count)/(sum(df$Count)-1))
+cat("Experiment 1 run 1 50% "  ,"\n" , "Mean =",Mean,"\n","Sample-SD =",SD,"\n","\n")
+
+df = ex1_1b;
+Mean = sum(df$Bin*df$Count)/sum(df$Count)
+SD = sqrt(sum((df$Bin-Mean)**2*df$Count)/(sum(df$Count)-1))
+cat("Experiment 1 run 1 100%"  ,"\n" , "Mean =",Mean,"\n","Sample-SD =",SD,"\n","\n")
+
+df = ex1_2a;
+Mean = sum(df$Bin*df$Count)/sum(df$Count)
+SD = sqrt(sum((df$Bin-Mean)**2*df$Count)/(sum(df$Count)-1))
+cat("Experiment 1 run 2 50% "  ,"\n" , "Mean =",Mean,"\n","Sample-SD =",SD,"\n","\n")
+
+df = ex1_2b;
+Mean = sum(df$Bin*df$Count)/sum(df$Count)
+SD = sqrt(sum((df$Bin-Mean)**2*df$Count)/(sum(df$Count)-1))
+cat("Experiment 1 run 2 100%"  ,"\n" , "Mean =",Mean,"\n","Sample-SD =",SD,"\n","\n")
+
+df = ex2_1a;
+Mean = sum(df$Bin*df$Count)/sum(df$Count)
+SD = sqrt(sum((df$Bin-Mean)**2*df$Count)/(sum(df$Count)-1))
+cat("Experiment 2 run 1 50% "  ,"\n" , "Mean =",Mean,"\n","Sample-SD =",SD,"\n","\n")
+
+df = ex2_1b;
+Mean = sum(df$Bin*df$Count)/sum(df$Count)
+SD = sqrt(sum((df$Bin-Mean)**2*df$Count)/(sum(df$Count)-1))
+cat("Experiment 2 run 1 100%"  ,"\n" , "Mean =",Mean,"\n","Sample-SD =",SD,"\n","\n")
+
+df = ex2_2a;
+Mean = sum(df$Bin*df$Count)/sum(df$Count)
+SD = sqrt(sum((df$Bin-Mean)**2*df$Count)/(sum(df$Count)-1))
+cat("Experiment 2 run 2 50% "  ,"\n" , "Mean =",Mean,"\n","Sample-SD =",SD,"\n","\n")
+
+df = ex2_2b;
+Mean = sum(df$Bin*df$Count)/sum(df$Count)
+SD = sqrt(sum((df$Bin-Mean)**2*df$Count)/(sum(df$Count)-1))
+cat("Experiment 2 run 2 100%"  ,"\n" , "Mean =",Mean,"\n","Sample-SD =",SD,"\n","\n")
+
+df = ex3_1a;
+Mean = sum(df$Bin*df$Count)/sum(df$Count)
+SD = sqrt(sum((df$Bin-Mean)**2*df$Count)/(sum(df$Count)-1))
+cat("Experiment 3 run 1 50% "  ,"\n" , "Mean =",Mean,"\n","Sample-SD =",SD,"\n","\n")
+
+df = ex3_1b;
+Mean = sum(df$Bin*df$Count)/sum(df$Count)
+SD = sqrt(sum((df$Bin-Mean)**2*df$Count)/(sum(df$Count)-1))
+cat("Experiment 3 run 1 100%"  ,"\n" , "Mean =",Mean,"\n","Sample-SD =",SD,"\n","\n")
+
+df = ex3_2a;
+Mean = sum(df$Bin*df$Count)/sum(df$Count)
+SD = sqrt(sum((df$Bin-Mean)**2*df$Count)/(sum(df$Count)-1))
+cat("Experiment 3 run 2 50% "  ,"\n" , "Mean =",Mean,"\n","Sample-SD =",SD,"\n","\n")
+
+df = ex3_2b;
+Mean = sum(df$Bin*df$Count)/sum(df$Count)
+SD = sqrt(sum((df$Bin-Mean)**2*df$Count)/(sum(df$Count)-1))
+cat("Experiment 3 run 2 100%"  ,"\n" , "Mean =",Mean,"\n","Sample-SD =",SD,"\n","\n")
+
+df = ex4_1a;
+Mean = sum(df$Bin*df$Count)/sum(df$Count)
+SD = sqrt(sum((df$Bin-Mean)**2*df$Count)/(sum(df$Count)-1))
+cat("Experiment 4 run 1 50% "  ,"\n" , "Mean =",Mean,"\n","Sample-SD =",SD,"\n","\n")
+
+df = ex4_1b;
+Mean = sum(df$Bin*df$Count)/sum(df$Count)
+SD = sqrt(sum((df$Bin-Mean)**2*df$Count)/(sum(df$Count)-1))
+cat("Experiment 4 run 1 100%"  ,"\n" , "Mean =",Mean,"\n","Sample-SD =",SD,"\n","\n")
+
+df = ex4_2a;
+Mean = sum(df$Bin*df$Count)/sum(df$Count)
+SD = sqrt(sum((df$Bin-Mean)**2*df$Count)/(sum(df$Count)-1))
+cat("Experiment 4 run 2 50% "  ,"\n" , "Mean =",Mean,"\n","Sample-SD =",SD,"\n","\n")
+
+df = ex4_2b;
+Mean = sum(df$Bin*df$Count)/sum(df$Count)
+SD = sqrt(sum((df$Bin-Mean)**2*df$Count)/(sum(df$Count)-1))
+cat("Experiment 4 run 2 100%"  ,"\n" , "Mean =",Mean,"\n","Sample-SD =",SD,"\n","\n")
+
+```
+
+
+### Exercise 3
+
+Q:How do means compare between the different cases ?
+
+A: In most case the mean result in similar value, there are a few outlier which are within +/-1.75 margin from the average mean.
+
+```{r}
+
+
+
+```
+
+
+### Exercise 4
+
+Q:How does tilting the Galton board vary the results (Try to use the height of the legs, the distance between legs and the height of the pen to make conclusions) ?
+
+A: We conclude that the change in tilt increase the standard deviation after comparing the data sets. This is probably due to the combination of the height of the legs plus the pen's height creating a slope that forces more beads to fall to one side, thus causing the graph to become skewed, which in turn increases the standard deviation.
+
+
+...
+```{r}
+
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
